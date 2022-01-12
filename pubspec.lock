@@ -109,9 +109,11 @@ packages:
   emulators:
     dependency: "direct dev"
     description:
-      name: emulators
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: a0aa7d0c1b59e1c09da3fbd70dc3cb3dba95762d
+      url: "https://github.com/melodysdreamj/dart_emulators.git"
+    source: git
     version: "0.2.3"
   fake_async:
     dependency: transitive

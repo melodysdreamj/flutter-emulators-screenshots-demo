@@ -24,6 +24,14 @@ Future<void> main() async {
     '-f',
   ]);
 
+  ///////////////////////////////////////////////////////////////
+  /*
+
+  1. 어떤기기이던지 아래에 있는 이름으로 안드로이드 스튜디오에서 만들어주면됩니다.
+
+   */
+  ///////////////////////////////////////////////////////////////
+
   final configs = [
     {'locale': 'en'},
     {'locale': 'fr'},
@@ -32,8 +40,8 @@ Future<void> main() async {
   // For each emulator in the list, we run `flutter drive`.
   await emu.forEach(config)([
     'Nexus_5X',
-    'iPhone 8 Plus',
-    'iPhone 12 Pro',
+    // 'iPhone 8 Plus',
+    // 'iPhone 12 Pro',
   ])((device) async {
     for (final c in configs) {
       final p = await emu.drive(config)(
