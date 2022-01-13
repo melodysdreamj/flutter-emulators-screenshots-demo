@@ -9,9 +9,9 @@ Future<void> main() async {
   // Setup emulators package
   final config = await emu.buildConfig();
   final screenshot = emu.writeScreenshotFromEnv(config)(
-    androidPath: 'screenshots/android',
-    iosPath: 'screenshots/ios',
-    suffixes: [emu.getString('locale')!],
+    androidPath: 'screenshots/app/test/android/${emu.getString('locale')!}',
+    iosPath: 'screenshots/app/test/ios/${emu.getString('locale')!}',
+    suffixes: [],
   );
 
   setUpAll(() async {
@@ -29,7 +29,7 @@ Future<void> main() async {
   group('Screenshots', () {
     test('home screen', () async {
       await driver.waitFor(find.text('Flutter Demo Home Page'));
-      await screenshot('01');
+      await screenshot('string_01');
     });
 
     final buttonFinder = find.byTooltip('Increment');
@@ -38,7 +38,7 @@ Future<void> main() async {
       await driver.tap(buttonFinder);
       await driver.tap(buttonFinder);
       await driver.waitUntilNoTransientCallbacks();
-      await screenshot('02');
+      await screenshot('string_02');
     });
   });
 }

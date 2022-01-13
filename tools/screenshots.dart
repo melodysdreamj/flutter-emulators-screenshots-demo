@@ -12,17 +12,17 @@ Future<void> main() async {
   // Make sure the Nexus_5X android emulator exists.
   // We use the avdmanager CLI tool for this.
   // You might need to install some packages in Android Studio for this to work.
-  await emu.avdmanager(config)([
-    'create',
-    'avd',
-    '-n',
-    'Nexus_5X',
-    '-k',
-    'system-images;android-30;google_apis_playstore;x86',
-    '-d',
-    'Nexus 5X',
-    '-f',
-  ]);
+  // await emu.avdmanager(config)([
+  //   'create',
+  //   'avd',
+  //   '-n',
+  //   'Nexus_5X',
+  //   '-k',
+  //   'system-images;android-30;google_apis_playstore;x86',
+  //   '-d',
+  //   'Nexus 5X',
+  //   '-f',
+  // ]);
 
   ///////////////////////////////////////////////////////////////
   /*
@@ -32,17 +32,27 @@ Future<void> main() async {
    */
   ///////////////////////////////////////////////////////////////
 
+
   final configs = [
     {'locale': 'en'},
-    {'locale': 'fr'},
+    {'locale': 'kr'},
   ];
+
 
   // For each emulator in the list, we run `flutter drive`.
   await emu.forEach(config)([
-    'Nexus_5X',
+    'iPad Pro (12.9-inch) (5th generation)',
+    'iPhone 12 Pro Max',
+    'iPhone 8 Plus',
+    'galaxy_10_plus',
+    'nexus_9'
+
+    // 'Nexus_4',
     // 'iPhone 8 Plus',
     // 'iPhone 12 Pro',
   ])((device) async {
+
+
     for (final c in configs) {
       final p = await emu.drive(config)(
         device,
